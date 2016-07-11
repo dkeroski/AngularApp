@@ -1,8 +1,8 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('myApp', ['ui.router'])
-        .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/');
             $stateProvider
                 .state('register', {
@@ -22,6 +22,10 @@
                     templateUrl: '/views/home.view.html',
                     controller: 'HomeController',
                     controllerAs: 'vm'
+                })
+                .state('logout', {
+                    url: '/logout',
+                    controller: 'LogoutController'
                 })
         }]);
 

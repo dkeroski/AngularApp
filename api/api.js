@@ -1,35 +1,51 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var User = require('./models/User.js');
+var User = require('./models/User');
+var jwt = require('./services/jwt.js');
+//connect to mongo db
+var url = 'mongodb://localhost/myDB';
+mongoose.connect(url, function(err) {
+    if (err) console.log(err);
+    console.log('Database is connected');
+});
 
 var app = express();
-
 app.use(bodyParser.json());
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
     next();
 })
 
-app.post('/register', function (req, res) {
+
+app.post('/register', function(req, res) {
     var user = req.body;
 
-    var newUser = new User.model({
-        username: user.username,
-        email: user.email,
-        password: user.password,
-        created_at: Date.now
-    });
+    var newUser = new User();
 
-    newUser.save(function (err) {
-        res.status(200).json(newUser);
-    });
+    newUser.username = req.body.username;
+    newUser.email = req.body.email;
+    newUser.password = req.body.password;
 
+    var payload = {
+        creted: req.hostname,
+        subject: user.id
+    }
+    var token = jwt.encode(payload, 'hello...');
+    newUser.save(function(err) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.status(200).send({
+                user: newUser.toJSON(),
+                token: token
+            });
+        }
+    });
 });
 
-mongoose.connect('mongodb://localhost/myDB');
-var server = app.listen(3000, function () {
+var server = app.listen(3000, function() {
     console.log('app listen on ', server.address().port);
-})
+});

@@ -39,5 +39,9 @@
   },
   "scripts": {
     "test": "karma start test\\karma.conf.js"
+  },
+  "dependencies": {
+    "bower": "^1.7.9",
+    "grunt-cli": "^1.2.0"
   }
 }
