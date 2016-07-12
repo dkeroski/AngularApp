@@ -15,7 +15,6 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/bootstrap-yeti.css" />
     <link rel="stylesheet" href="bower_components/toastr/toastr.min.css">
-    <link rel="stylesheet" href="bower_components/animate.css/animate.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
@@ -26,22 +25,16 @@
     <![endif]-->
 
     <!--Header -->
-
-    <div ng-include="'views/header.view.html'">
-
-    </div>
+    <div ng-include="'views/header.view.html'"></div>
 
 
 
     <!-- Add your site or application content here -->
-
-    <div ui-view class="fade">
-    </div>
+    <div ui-view></div>
 
 
 
-    <div class="footer">
-    </div>
+    <div class="footer"></div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -56,6 +49,7 @@
         ga('create', 'UA-XXXXX-X');
         ga('send', 'pageview');
     </script>
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -78,10 +72,8 @@
     <script src="scripts/controllers/register.controller.js"></script>
     <script src="scripts/controllers/login.controller.js"></script>
     <script src="scripts/controllers/header.controller.js"></script>
-    <script src="scripts/controllers/logout.controller.js"></script>
-    <script src="scripts/controllers/jobs.controller.js"></script>
     <!-- services -->
-    <script src="scripts/services/authtoken.js"></script>
+
     <!--<script src="scripts/services/authinterceptor.js"></script>-->
 
     <!-- endbuild -->

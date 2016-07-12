@@ -4,12 +4,11 @@
         .module('myApp')
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['authToken'];
+    HeaderController.$inject = [];
 
-    function HeaderController(authToken) {
+    function HeaderController() {
         var vm = this;
 
-        authToken.isAuthenticated();
 
     }
 

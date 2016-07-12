@@ -1,8 +1,8 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('myApp', ['ui.router'])
-        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
             $urlRouterProvider.otherwise('/');
             $stateProvider
                 .state('register', {
@@ -23,19 +23,8 @@
                     controller: 'HomeController',
                     controllerAs: 'vm'
                 })
-                .state('jobs', {
-                    url: '/jobs',
-                    templateUrl: '/views/jobs.view.html',
-                    controller: 'JobsController',
-                    controllerAs: 'vm'
-                })
-                .state('logout', {
-                    url: '/logout',
-                    controller: 'LogoutController'
-                })
-                //$httpProvider.interceptors.push('authInterceptors');
-        }])
-        //cinstat api adress
-        .constant('API_URL', 'http://localhost:3000');
+        }]);
+    //cinstat api adress
+    
 
 })();

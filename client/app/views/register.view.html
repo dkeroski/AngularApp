@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3">
+            <div class="account-wall">
+                <div id="my-tab-content" class="tab-content">
+                    <div id="register">
+                        <form class="form-signin"  ng-submit="vm.register()">
+                            <input type="text" class="form-control" placeholder="Username" required autofocus ng-model="vm.username">
+                            <input type="email" class="form-control" placeholder="Email" required ng-model="vm.email">
+                            <input type="password" class="form-control" placeholder="Password" required ng-model="vm.password">
+                            <input type="submit" class="btn btn-lg btn-default btn-block" value="Sign Up" />
+                        </form>
+                        <div id="tabs" data-tabs="tabs">
+                            <p class="text-center"><a ui-sref="login" data-toggle="tab">Have an Account?</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
